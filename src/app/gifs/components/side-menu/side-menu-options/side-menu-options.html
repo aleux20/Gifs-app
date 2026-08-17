@@ -14,4 +14,21 @@
       </div>
     </a>
   }
+
+  @if (searchHistory().length > 0) {
+    <div class="mt-4">
+      <h3 class="text-white/50 text-sm uppercase">Búsquedas recientes</h3>
+
+      @for (query of searchHistory(); track query) {
+        <a
+          [routerLink]="['/dashboard/history', query]"
+          routerLinkActive="bg-blue-800"
+          class="w-full px-2 py-2 inline-flex items-center text-white/70 hover:bg-white/5 transition ease-linear duration-150"
+        >
+          <i class="fa-solid fa-clock-rotate-left mr-2"></i>
+          <span>{{ query }}</span>
+        </a>
+      }
+    </div>
+  }
 </div>
